@@ -5,7 +5,6 @@ Console.Clear();
 int[] array = GetArray(4, 100, 999);
 Console.WriteLine(String.Join(" ", array));
 int countIvenNumber = IvenNumber(array);
-
 Console.WriteLine($"Количество чётных чисел в массиве {countIvenNumber}");
 
 // Возвращает массив из size элементов,
