@@ -2,11 +2,25 @@
 // Найдите сумму элементов, стоящих на нечётных позициях.
 
 Console.Clear();
-int[] array = GetArray(4, -100, 100);
+int num = NumberFromUser ("Введите количество элементов массива: ","Ошибка ввода!");
+int[] array = GetArray(num, -100, 100);
 Console.WriteLine(String.Join(" ", array));
 int unevenPositionNumberSum = unevenPositionSum(array);
 Console.WriteLine($"-> {unevenPositionNumberSum}");
 
+// возвращает количество элементов массива, либо сообщение об ошибке
+
+int NumberFromUser (string message, string errorMessage)
+{
+    while(true)
+    {
+        Console.Write(message);
+        bool isCorrect = int.TryParse(Console.ReadLine(), out int userNumber);
+        if (isCorrect)
+            return userNumber;
+        Console.WriteLine(errorMessage);
+    }
+}
 // Возвращает массив из size элементов,
 // заполненный случайными числами из промежутка [minValue, maxValue]
 
