@@ -2,10 +2,25 @@
 //Напишите программу, которая покажет количество чётных чисел в массиве. 
 
 Console.Clear();
-int[] array = GetArray(4, 100, 999);
+int num = NumberFromUser ("Введите количество элементов массива: ","Ошибка ввода!");
+int[] array = GetArray(num, 100, 999);
 Console.WriteLine(String.Join(" ", array));
 int countIvenNumber = IvenNumber(array);
 Console.WriteLine($"Количество чётных чисел в массиве {countIvenNumber}");
+
+// возвращает количество элементов массива, либо сообщение об ошибке
+
+int NumberFromUser (string message, string errorMessage)
+{
+    while(true)
+    {
+        Console.Write(message);
+        bool isCorrect = int.TryParse(Console.ReadLine(), out int userNumber);
+        if (isCorrect)
+            return userNumber;
+        Console.WriteLine(errorMessage);
+    }
+}
 
 // Возвращает массив из size элементов,
 // заполненный случайными числами из промежутка [minValue, maxValue]
